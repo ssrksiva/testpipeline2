@@ -3,11 +3,9 @@ pipeline {
   stages {
     stage('Pull') {
       steps {
-<<<<<<< HEAD
-        git(url: 'https://github.com/ssrksiva/testpipeline2.git', branch: 'develop', poll: true)
-=======
+
         git(url: 'https://github.com/ssrksiva/testpipeline2.git', branch: 'develop', poll: true, credentialsId: 'testgithub')
->>>>>>> d50eddc868edfeea8e5353b40cc33b9841a4a383
+
       }
     }
 
@@ -29,7 +27,7 @@ pipeline {
         branch 'develop'
       }
       steps {
-<<<<<<< HEAD
+
 	  withCredentials([usernamePassword(credentialsId: env.testgithub, usernameVariable: 'Username', passwordVariable: 'Password')]) {
                     script {
                         env.encodedPass=URLEncoder.encode(PASS, "UTF-8")
@@ -38,9 +36,6 @@ pipeline {
                    sh 'git push -u origin master'
                 } 
         
-=======
-        sh 'git push origin master'
->>>>>>> d50eddc868edfeea8e5353b40cc33b9841a4a383
       }
     }
 
