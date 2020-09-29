@@ -20,8 +20,6 @@ pipeline {
       }
     }
 
-    
-
     stage('Deliver for development') {
       when {
         branch 'develop'
