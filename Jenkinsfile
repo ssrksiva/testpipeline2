@@ -20,8 +20,7 @@ pipeline {
       steps {
         sh 'git config --global credential.username ssrksiva'
         sh 'git config --global credential.helper "!echo password=14Dec@1991; echo"'
-        sh 'git pull origin/master'
-        sh 'git push -u origin master'
+        sh 'git push origin master'
       }
     }
 
