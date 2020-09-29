@@ -59,6 +59,17 @@ pipeline {
 
       }
     }
+	stage('Deliver for development') {
+            when {
+                branch 'develop'
+            }
+            steps {
+               sh 'git tag -a tagName -m "test-admin"'
+               sh 'git merge develop'
+               sh 'git commit -am "Merged develop branch to master'
+               sh 'git push origin master'
+            }
+        }
 
   }
 }
