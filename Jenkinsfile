@@ -25,7 +25,7 @@ pipeline {
         branch 'develop'
       }
       steps {
-        sh 'git push --set-upstream origin master'
+        sh 'git push origin master'
       }
     }
 
