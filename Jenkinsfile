@@ -28,7 +28,7 @@ pipeline {
       }
       steps {
 
-	  withCredentials([usernamePassword(credentialsId: env.testgithub, usernameVariable: 'Username', passwordVariable: 'Password')]) {
+	  withCredentials([usernamePassword(credentialsId: 'testgithub', usernameVariable: 'Username', passwordVariable: 'Password')]) {
                     script {
                         env.encodedPass=URLEncoder.encode(PASS, "UTF-8")
                     }
