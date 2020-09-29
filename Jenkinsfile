@@ -67,11 +67,10 @@ pipeline {
 			   sh 'git config --global user.name "ssrksiva"'
                sh 'git config --global user.email "sssrkbsc@gmail.com"'
                sh 'git tag -a tagName -m "test-admin"'
-			   sh 'git commit -am "Merged develop branch to master'
+			   sh 'git commit -am "Merged develop branch to master"'
                sh 'git merge develop --allow-unrelated-histories'
                sh 'git push origin master'
             }
         }
-
   }
 }
