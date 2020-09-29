@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Pull') {
       steps {
-        git(url: 'https://github.com/vvishal0812/jhipster6-demo.git', branch: 'master', poll: true)
+        git(url: 'https://github.com/ssrksiva/testpipeline2.git', branch: 'develop', poll: true)
       }
     }
 
@@ -25,8 +25,14 @@ pipeline {
         branch 'develop'
       }
       steps {
-        sh 'git merge develop --allow-unrelated-histories'
-        sh 'git push origin master'
+	  withCredentials([usernamePassword(credentialsId: env.testgithub, usernameVariable: 'Username', passwordVariable: 'Password')]) {
+                    script {
+                        env.encodedPass=URLEncoder.encode(PASS, "UTF-8")
+                    }
+                    sh 'git merge -s ours develop --allow-unrelated-histories'
+                   sh 'git push -u origin master'
+                } 
+        
       }
     }
 
