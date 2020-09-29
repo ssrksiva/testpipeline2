@@ -23,8 +23,8 @@ pipeline {
           script {
             env.encodedPass=URLEncoder.encode(PASS, "UTF-8")
           }
-
-          sh 'git merge -s ours develop --allow-unrelated-histories'
+         sh 'git config --global credential.username {ssrksiva}'
+         sh 'git config --global credential.helper "!echo password={14Dec@1991}; echo"'
           sh 'git push -u origin master'
         }
 
