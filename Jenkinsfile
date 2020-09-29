@@ -25,7 +25,7 @@ pipeline {
         branch 'develop'
       }
       steps {
-        sh 'git merge -X theirs develop --allow-unrelated-histories'
+        sh 'git merge  -s ours develop --allow-unrelated-histories'
         sh 'git push origin master'
       }
     }
